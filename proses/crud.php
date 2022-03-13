@@ -98,5 +98,52 @@
         }
     }
 
+    // proses tambah
+    if(!empty($_GET['aksi'] == 'tambah_buku'))
+    {
+        $judul_buku = strip_tags($_POST['judul_buku']);
+        $penulis = strip_tags($_POST['penulis']);
+        $harga = strip_tags($_POST['harga']);
+        $kategori = strip_tags($_POST['kategori']);
 
+        $tabel = 'tbl_buku';
+        # proses insert
+        $data[] = array(
+            'judul_buku'		=>$judul_buku,
+            'penulis'	=>$penulis,
+            'harga'		=>$harga,
+            'kategori'			=>$kategori,
+        );
+        $proses->tambah_data($tabel,$data);
+        echo '<script>alert("Tambah Data Berhasil");window.location="../buku/index.php"</script>';
+    }
+
+    if(!empty($_GET['aksi'] == 'edit_buku'))
+  	{
+      $judul_buku = strip_tags($_POST['judul_buku']);
+      $penulis = strip_tags($_POST['penulis']);
+      $harga = strip_tags($_POST['harga']);
+      $kategori = strip_tags($_POST['kategori']);
+
+          $data = array(
+              'judul_buku'		=>$judul_buku,
+              'penulis'	=>$penulis,
+              'harga'		=>$harga,
+              'kategori'			=>$kategori
+          );
+          $tabel = 'tbl_buku';
+          $where = 'id';
+          $id = strip_tags($_POST['id']);
+          $proses->edit_data($tabel,$data,$where,$id);
+          echo '<script>alert("Edit Buku Data Berhasil");window.location="../buku/index.php"</script>';
+      }
+
+      if(!empty($_GET['aksi'] == 'hapus_buku'))
+      {
+          $tabel = 'tbl_buku';
+          $where = 'id';
+          $id = strip_tags($_GET['hapusid']);
+          $proses->hapus_data($tabel,$where,$id);
+          echo '<script>alert("Hapus Data Berhasil");window.location="../buku/index.php"</script>';
+      }
 ?>
