@@ -33,7 +33,7 @@
 					<br/>
 					<div class="card">
 						<div class="card-header">
-						<h4 class="card-title">Edit Pengguna - <?php echo $hasil['judul_buku'];?></h4>
+						<h4 class="card-title">Edit Buku - <?php echo $hasil['judul_buku'];?></h4>
 						</div>
 						<div class="card-body">
 						<!-- form berfungsi mengirimkan data input
