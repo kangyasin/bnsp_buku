@@ -35,6 +35,7 @@
                     <a href="logout.php" class="btn btn-danger btn-md float-right"><span class="fa fa-sign-out"></span> Logout</a>
                     <br/><br/>
                     <a href="buku/index.php" class="btn btn-success btn-md"><span class="fa fa-plus"></span> Data Buku</a>
+                    <a href="musik/index.php" class="btn btn-success btn-md"><span class="fa fa-plus"></span> Data Musik</a>
 
                     <a href="tambah.php" class="btn btn-success btn-md"><span class="fa fa-plus"></span> Tambah</a>
                     <br/><br/>

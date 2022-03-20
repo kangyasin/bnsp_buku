@@ -7,7 +7,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>List Data Buku</title>
+		<title>List Data Lagu</title>
 		<!-- BOOTSTRAP 4-->
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
     <!-- DATATABLES BS 4-->
@@ -34,9 +34,9 @@
                     <a href="../logout.php" class="btn btn-danger btn-md float-right"><span class="fa fa-sign-out"></span> Logout</a>
                     <br/><br/>
                     <a href="../index.php" class="btn btn-success btn-md"><span class="fa fa-plus"></span> Data User</a>
-                    <a href="../musik/index.php" class="btn btn-success btn-md"><span class="fa fa-plus"></span> Data Musik</a>
+                    <a href="../buku/index.php" class="btn btn-success btn-md"><span class="fa fa-plus"></span> Data Buku</a>
 
-                    <a href="tambah.php" class="btn btn-success btn-md"><span class="fa fa-plus"></span> Tambah Buku</a>
+                    <a href="tambah.php" class="btn btn-success btn-md"><span class="fa fa-plus"></span> Tambah Musik</a>
                     <br/><br/>
                     <div class="card">
                         <div class="card-header">
@@ -47,29 +47,29 @@
                                 <thead>
                                     <tr>
                                         <th width="50px">No</th>
-                                        <th>Judul Buku</th>
-                                        <th>Penulis</th>
-                                        <th>Harga</th>
+                                        <th>Judul Lagu</th>
+                                        <th>Penyanyi</th>
                                         <th>Kategori</th>
+                                        <th>Tahun</th>
                                         <th style="text-align: center;">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php
                                     $no=1;
-                                    $hasil = $proses->tampil_data('tbl_buku');
+                                    $hasil = $proses->tampil_data('tbl_lagu');
                                     foreach($hasil as $buku){
                                 ?>
                                     <tr>
                                         <td><?php echo $no; ?></td>
-                                        <td><?php echo $buku['judul_buku']?></td>
-                                        <td><?php echo $buku['penulis'];?></td>
+                                        <td><?php echo $buku['judul_lagu']?></td>
+                                        <td><?php echo $buku['penyanyi'];?></td>
                                         <td><?php echo $buku['kategori'];?></td>
-                                        <td><?php echo 'Rp '.number_format($buku['harga']);?></td>
+                                        <td><?php echo $buku['tahun'];?></td>
                                         <td style="text-align: center;">
-                                            <a href="edit.php?id=<?php echo $buku['id'];?>" class="btn btn-success btn-md">
+                                            <a href="edit.php?id_lagu=<?php echo $buku['id_lagu'];?>" class="btn btn-success btn-md">
                                             <span class="fa fa-edit"></span>Edit</a>
-                                            <a onclick="return confirm('Apakah yakin data akan di hapus?')" href="../proses/crud.php?aksi=hapus_buku&hapusid=<?php echo $buku['id'];?>"
+                                            <a onclick="return confirm('Apakah yakin data akan di hapus?')" href="../proses/crud.php?aksi=hapus_lagu&hapusid=<?php echo $buku['id_lagu'];?>"
                                             class="btn btn-danger btn-md"><span class="fa fa-trash"></span>Delete</a>
                                         </td>
                                     </tr>

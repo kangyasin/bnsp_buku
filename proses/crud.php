@@ -146,4 +146,53 @@
           $proses->hapus_data($tabel,$where,$id);
           echo '<script>alert("Hapus Data Berhasil");window.location="../buku/index.php"</script>';
       }
+
+      // proses tambah
+      if(!empty($_GET['aksi'] == 'tambah_lagu'))
+      {
+          $judul_lagu = strip_tags($_POST['judul_lagu']);
+          $penyanyi = strip_tags($_POST['penyanyi']);
+          $tahun = strip_tags($_POST['tahun']);
+          $kategori = strip_tags($_POST['kategori']);
+
+          $tabel = 'tbl_lagu';
+          # proses insert
+          $data[] = array(
+              'judul_lagu'		=>$judul_lagu,
+              'penyanyi'	=>$penyanyi,
+              'tahun'		=>$tahun,
+              'kategori'			=>$kategori,
+          );
+          $proses->tambah_data($tabel,$data);
+          echo '<script>alert("Tambah Data Berhasil");window.location="../musik/index.php"</script>';
+      }
+
+      if(!empty($_GET['aksi'] == 'edit_lagu'))
+      {
+        $judul_lagu = strip_tags($_POST['judul_lagu']);
+        $penyanyi = strip_tags($_POST['penyanyi']);
+        $tahun = strip_tags($_POST['tahun']);
+        $kategori = strip_tags($_POST['kategori']);
+
+            $data = array(
+                'judul_lagu'		=>$judul_lagu,
+                'penyanyi'	=>$penyanyi,
+                'tahun'		=>$tahun,
+                'kategori'			=>$kategori
+            );
+            $tabel = 'tbl_lagu';
+            $where = 'id_lagu';
+            $id = strip_tags($_POST['id_lagu']);
+            $proses->edit_data($tabel,$data,$where,$id);
+            echo '<script>alert("Edit Musik Data Berhasil");window.location="../musik/index.php"</script>';
+        }
+
+        if(!empty($_GET['aksi'] == 'hapus_lagu'))
+        {
+            $tabel = 'tbl_musik';
+            $where = 'id_lagu';
+            $id = strip_tags($_GET['hapusid']);
+            $proses->hapus_data($tabel,$where,$id);
+            echo '<script>alert("Hapus Data Berhasil");window.location="../musik/index.php"</script>';
+        }
 ?>
